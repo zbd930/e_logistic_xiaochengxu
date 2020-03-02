@@ -1,0 +1,65 @@
+@import "./utils/icon.wxss";
+@import "./utils/icon1.wxss";
+@import "./utils/icon3.wxss";
+/**app.wxss**/
+page{
+   width: 100%;
+   height: 100%;
+   overflow: hidden;
+}
+.container {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  padding: 200rpx 0;
+  box-sizing: border-box;
+} 
+.main{
+  height: 100%;
+  width: 100%;
+}
+.xiala{
+  position: absolute;
+  right:11%;
+}
+.layout_horizontal{
+  display: flex;
+  /*row 横向  column 列表  */
+  flex-direction: row;
+}
+.text_size{
+  font-size:13px;
+}
+/*纵向布局  */
+.layout_vertical{
+  display: flex;
+  /*row 横向  column 列表  */
+  flex-direction: column;
+}
+/* 客服 */
+@font-face {
+  font-family: 'iconfont';  /* project id 1502608 */
+  src: url('//at.alicdn.com/t/font_1502608_1pk95gakapm.eot');
+  src: url('//at.alicdn.com/t/font_1502608_1pk95gakapm.eot?#iefix') format('embedded-opentype'),
+  url('//at.alicdn.com/t/font_1502608_1pk95gakapm.woff2') format('woff2'),
+  url('//at.alicdn.com/t/font_1502608_1pk95gakapm.woff') format('woff'),
+  url('//at.alicdn.com/t/font_1502608_1pk95gakapm.ttf') format('truetype'),
+  url('//at.alicdn.com/t/font_1502608_1pk95gakapm.svg#iconfont') format('svg');
+}
+
+.iconfont {
+  font-family: "iconfont" !important;
+  font-size: 80rpx;
+  font-style: normal;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-ziyuan:before {
+  content: "\e64e";
+}
+
+
+

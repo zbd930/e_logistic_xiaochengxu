@@ -1,0 +1,263 @@
+/* pages/items/items.wxss */
+.background_items{
+  width: 100%;
+  height: 100%;
+ background: rgb(239, 239, 244)
+}
+.text{
+  margin:5%;
+}
+.items{
+  position: relative;
+  margin-top:20rpx;
+  margin-left:2.5%;
+  padding-top:30rpx;
+  width: 95%;
+  height: 650rpx;
+  background-color:#fff; 
+  border-radius: 20rpx;
+} 
+.lunchuan{
+  position: absolute;
+  left: 10rpx;
+  top:150rpx;
+  font-size: 120rpx;
+}
+.items button{
+  width: 30%;
+  height: 60rpx;
+  line-height: 60rpx;
+  border-radius: 30rpx;
+  background: rgb(76, 172, 254);
+  color: white
+}
+.title{
+  margin-top:10rpx
+}
+/* 弹框 */
+.element-wrapper {
+  display: flex;
+  position: fixed;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+}
+.checkbox{
+  display:inline-block;
+  margin:10rpx;
+  padding:6rpx;
+  background:#eee;
+  border-radius: 4rpx;
+
+}
+.checkedActive{
+  background:red;
+  color:#fff;
+}
+.my_comments{
+   width: 200rpx;
+  line-height: 60rpx;
+  height: 60rpx;
+ text-align: center;
+font-size: 30rpx;
+}
+.background {
+  background-color: rgba(0, 0, 0, 0);
+  width: 100vw;
+  height: 100vh;
+  position: absolute;
+  top: 0;
+}
+.iconusecont-div {
+  display: inline-block;
+  width: 32%;
+  text-align: center;
+  margin-top: 30rpx;
+}
+
+.flex-item {
+  display: inline-block; 
+  text-align: center; 
+  cursor: pointer;
+  margin:10rpx;
+  padding:6rpx;
+  background:#eee;
+  border-radius: 4rpx;
+}
+
+.use_name {
+  width: 200rpx;
+  line-height: 60rpx;
+  height: 60rpx;
+ text-align: center;
+ font-size: 30rpx;
+}
+
+.active-tag .flex-item {
+  background:red;
+  color: #fff;
+}
+
+.bg {
+  background-color: rgba(0, 0, 0, 0.4);
+  width: 100vw;
+  height: 100vh;
+  position: absolute;
+  top: 0;
+  transition-property: background-color;
+  transition-timing-function: ease;
+  transition-duration: 1s;
+  transition-delay: 0;
+}
+
+.element {
+  padding-left:22rpx;
+  position: fixed;
+  width: 100%;
+  height: 67vh;
+  bottom: 0;
+  background-color: rgba(255, 255, 255, 1);
+}
+.element text {
+  color: #999;
+  display: inline-flex;
+  position: fixed;
+  margin-top: 20rpx;
+  height: 50rpx;
+  text-align: center;
+  line-height: 50rpx;
+  font-size: 30rpx;
+}
+.element .left-bt {
+  left: 5%;
+ font-size: 30rpx;
+  color: #888;
+  line-height: 34rpx;
+}
+
+.element .right-bt {
+  right: 5%;
+  font-size: 30rpx;
+  color: #888;
+  text-align: right;
+  line-height: 34rpx;
+}
+
+.element .line {
+  display: block;
+  position: fixed;
+  height: 1px;
+  width: 100%;
+  margin-top: 89rpx;
+  background-color: #eee;
+}
+.tijiao{
+  width: 200rpx;
+  text-align: center;
+  font-size: 30rpx;
+  height: 80rpx;
+  line-height: 80rpx;
+  margin-top:10rpx;
+}
+.desc{
+  font-size: 28rpx;
+  color:rgb(188,188,188);
+}
+.div{
+  padding: 30rpx;
+  margin-top:24rpx;
+  margin-left:6%;
+  width: 80%;
+  background: rgb(237, 242, 255)
+}
+.yundi{
+  color: rgb(51, 51, 51);
+  font-size: 36rpx;
+}
+.price{
+  color: rgb(235,129,76);
+  font-size: 36rpx;
+}
+#view{
+width: 50%;
+}
+#view:nth-child(2){
+  text-align: center
+}
+#view:nth-child(3){
+  text-align: right
+}
+.date{
+  color: rgb(51, 51, 51);
+  font-size: 30rpx;
+  width: 50%;
+}
+.date:nth-child(2){
+  text-align: right
+}
+#qiri{
+  color: rgb(118, 118, 118);
+  font-size:30rpx;
+}
+#jiekai{
+  width: 80%;
+  margin-left:10%;
+  padding-top: 20rpx;
+  padding-bottom: 20rpx;
+  border-bottom: 1px rgb(118, 118, 118) solid;
+}
+#shengyu{
+  width: 80%;
+  margin-left:10%;
+  padding-top: 20rpx;
+  padding-bottom: 20rpx;
+}
+#last{
+  width: 50%;
+}
+#last:nth-child(2){
+  width: 50%;
+  text-align: right;
+}
+image{
+  width: 100rpx;
+  height: 75rpx;
+  position: relative;
+  align-items:center;
+}
+#desc{
+  flex: 1;align-items:center;
+}
+#top{
+  width: 80%;
+  margin-left:10%;
+}
+.border{
+  border: 0.5px solid ;
+  border-color:rgb(235,129,76);
+  top:255rpx;
+  left:340rpx;
+  width: 50rpx;
+  position: absolute;
+}
+.vote{
+  border:0px;
+  width:180rpx;
+  height: 60rpx;
+  line-height: 60rpx;
+  border-radius: 10rpx;
+  text-align:center;
+  margin-left:10rpx;
+}
+.voteText{
+  width: 100rpx;
+  height: 60rpx;
+  line-height: 60rpx;
+  border-radius: 10rpx;
+  text-align:center;
+  margin-left:10rpx;
+  background: rgb(76, 172, 254);
+  color: #fff;
+}

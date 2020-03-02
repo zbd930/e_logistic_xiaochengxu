@@ -1,0 +1,59 @@
+<!--pages/dizhi/dizhi.wxml-->
+<scroll-view scroll-y style="height:100%;">
+              <view wx:for="{{dizhi}}" wx:key='item' style='{{key==index?"font-size:40rpx;":""}} z-index:999;' data-index='{{index}}'  class="item {{bg?'bg1':'bg2'}}" bindtap='seleted' data-name="{{item.name}}" data-phone="{{item.phone}}" data-address="{{item.address}}" data-id="{{item.id}}" bindlongtap="longTap" bindtouchstart="touchStart" bindtouchend="touchEnd">
+      <image src='../../pics/dizhi.png'mode="widthFix" class="dizhi"></image>           <text >{{item.name}}  </text> <text >    {{item.phone}}</text> 
+                <view style='margin-top:2%;' >地址：<text style="font-size:30rpx;">{{item.address}}</text></view>
+                <view style='margin-top:2%;' >邮箱: {{item.email}} </view>
+  </view>
+       <view class="item ">
+       <!--添加-->
+                   <text bindtap='share' class="iconfont icon-changyongtubiao-mianxing-" style="margin-left:40%;font-size:100rpx;" ></text> 
+                   <view id="tianjia" wx:if="{{shareshow}}">
+                   <!-- 联系人 -->
+                      <text class='title'>联系方式*</text>
+                        <view class='biankuan '>
+                              <view class='layout_horizontal'>
+                                  <image src='../../pics/lianxiren.png'mode="widthFix">
+                                    </image>
+                                    <input name='contact_name' bindinput='contactNameInput'type="text" placeholder='联系人'>
+                                    </input>
+                              </view>
+                            
+                              <view class='layout_horizontal'>
+                                  <image src='../../pics/shouji.png' mode="widthFix">
+                                    </image>
+                                    <input name='contact_phone' bindinput='contactphoneInput' maxlength="11" type="number"  placeholder='电话'>
+                                    </input>
+                              </view>
+                               <view class='layout_horizontal'>
+                                  <image src='../../pics/email.png' mode="widthFix">
+                                    </image>
+                                    <view class='layout_horizontal'>
+                                    </view>
+                                    <input name='contact_email' bindinput='contactemailInput'  type="text"  placeholder='邮箱'>
+                                    </input>
+                                     <button bindtap="get_code" class="location" style="background:#3787e2;color:#fff;">验证码</button>
+                              </view>
+                              <view class='layout_horizontal'>
+                                  <image src='../../pics/code.png' mode="widthFix">
+                                    </image>
+                                    <input name='code' bindinput='contactcodeInput'  type="number"  placeholder='验证码'>
+                                    </input>    
+                              </view>
+                        </view>
+                        <!-- 选择地址 -->
+                        <text class='title'>地址选项*</text>
+                                <view class='biankuan '>
+                                      <view class='layout_horizontal'>
+                                          <image src='../../pics/dizhi.png'mode="widthFix">
+                                            </image>
+                                            <input name='contact_address' bindinput='contactaddressInput'type="text" value='{{contact_addree}}' placeholder='地址选择'>
+                                            </input>
+                                      </view>
+                                        <view class='location' catchtap='getUserLocation'>点击获取地址</view >
+                      </view>
+                      <button style="margin-left:12%;background:#3787e2;color:#fff;width:470rpx" bindtap="tijiao">提交</button>
+                 </view>   
+                </view>
+</scroll-view>
+

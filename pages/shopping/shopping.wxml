@@ -1,0 +1,30 @@
+<view class="main">
+  <scroll-view scroll-y="true" style="height:100%; color:black;">
+    <block wx:for="{{shopping}}" wx:key='item' wx:for-index="bindex"> 
+      <view class="items" wx:if="{{item.ctn!=undefined}}">
+        <view class="layout_horizontal">
+          <image src="../../pics/chuanyun.png" >
+          </image>
+          <view class="layout_vertical" style="margin-top:40rpx;margin-left:20rpx;font-size:25rpx;">
+           箱数:{{item.ctn}} ctns
+           重量:{{item.weight}} KG
+           体积:{{item.volume}} CBM
+            <view class="layout_vertical">
+            提货日期：{{item.picking}}
+            </view>
+             <view class="layout_vertical">
+              <text>目的地：{{item.dest}} 品名：{{item.category}}</text>
+              </view>
+              <view class="layout_horizontal">
+              <text style="color:rgb(235,129,76)">￥{{item.amount}}</text>
+              </view>
+              <view class="layout_vertical">
+                {{item.beizhu}}
+              </view>
+          </view>
+          </view>
+          <button bindtap='showModel' data-timeStamp="{{item.timeStamp}}" data-nonceStr="{{item.nonceStr}}" data-package="{{item.package}}" data-sign="{{item.sign}}">支付</button>
+        </view>
+      </block>
+  </scroll-view>
+</view>

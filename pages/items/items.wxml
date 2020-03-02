@@ -1,0 +1,122 @@
+<!--pages/items/items.wxml-->
+<view class="background_items">
+
+<scroll-view scroll-y="true" style="height:100%; color:black;">
+  <block wx:for="{{items}}" wx:key='item' wx:for-index="bindex"> 
+     <view class="items" wx:if="{{item.details.discount==0}}">
+            <view class=" layout_horizontal" id="top">
+             <text class="title desc" id="desc">{{item.desc}}
+             <text class="desc" style="text-align:right">{{item.supplier_companies[0].company_name}}</text>
+             </text>
+             <image src="../../pics/lunchuan.png"></image>
+            </view>
+            <view class="div layout_vertical">
+              <view class="layout_horizontal">
+                <text class="yundi" id="view">{{item.qiyungang}}</text>
+                <view wx:if="{{item.method!='海卡'}}">
+                 <text class="price" id="view">{{item.price}}+{{item.addition.price}}<text style="font-size:25rpx;">/KG</text></text>
+                </view>
+                <view wx:else>
+                 <text class="price" id="view">{{item.price}}<text style="font-size:25rpx;">/CBM</text></text>
+                </view>
+                <text class="yundi" id="view">{{item.mudigang}}</text>
+              </view>
+              <view class="layout_horizontal">
+                <text class="yundi date" id="riqi">{{item.etd}}</text>
+                <image src="../../pics/jiantou.png" style="width:150rpx;height:20rpx;"></image> 
+                <text class="yundi date" id="riqi" style="text-align: right" >{{item.eta}}</text>
+              </view>
+              <view class="layout_horizontal">
+                <text class="yundi date">出发日期</text>
+                <text class="yundi date" >预计到达</text>
+              </view>
+               <view wx:if="{{item.details.compensate=='1'}}">
+                  <view class="layout_horizontal">
+                    <text style="color:#0b5bf9;margin-left:43%;font-size:26rpx">慢必赔</text>
+                  </view>
+                </view>
+            </view>
+            <view class="layout_horizontal" id="jiekai">
+             <text class="yundi date">
+                <text style="color:rgb(51,51,51);font-size:30rpx">{{item.details.cut_time}}</text>
+                <text style="color:rgb(118,118,118);font-size:22rpx">截止收货</text>
+              </text>
+                <text class="yundi date">
+                <text style="color:rgb(51,51,51);font-size:30rpx">{{item.details.cut_end}}</text>
+                <text style="color:rgb(118,118,118);font-size:22rpx">开船时间</text>
+              </text>
+            </view>
+            <view class="layout_horizontal" id="shengyu">
+                <text style="color:rgb(51,51,51);font-size:28rpx" id="last">
+                  剩余重量: {{item.details.weight}} KG
+                </text>
+                <text style="color:rgb(51,51,51);font-size:28rpx" id="last">
+                   剩余体积: {{item.details.volume}} CBM
+                </text>
+            </view>
+            <button bindtap='showModel' data-userID="{{item.id}}" data-id="{{bindex}}">详细</button>
+    </view>
+    <view class="items" wx:elif="{{item.details.discount!=0}}">
+           <view class="layout_horizontal" style="margin-left:10%">
+              <view class="vote" >剩余时间：</view>
+              <view class="voteText countDownTimeText">{{item.details.countDownHour}}时</view>
+              <view class="voteText countDownTimeText">{{item.details.countDownMinute}}分</view>
+              <view class="voteText countDownTimeText">{{item.details.countDownSecond}}秒</view>
+            </view>
+            <view class=" layout_horizontal" id="top">
+             <text class="title desc" id="desc">{{item.desc}}        
+             <text class="desc" style="text-align:right">{{item.supplier_companies[0].company_name}}</text>
+             </text>
+             <image src="../../pics/lunchuan.png"></image>
+            </view>
+            <view class="div layout_vertical">
+              <view class="layout_horizontal">
+                <text class="yundi" id="view">出发日期</text>
+                <view wx:if="{{item.method!='海卡'}}" style="width:80rpx">
+                 <view class="border"></view>
+                 <text class="price" id="view" style="z-index: -1;font-size:20rpx">原价:{{item.price}}</text>
+                </view>
+                <view wx:else >
+                 <text class="price" id="view" style="z-index: -1">原价:{{item.price}}</text>
+                </view>
+                <text class="yundi" id="view">预计到达</text>
+              </view>
+              <view class="layout_horizontal">
+                <text class="yundi date" >{{item.etd}}</text>
+                <view class="layout_vertical" >
+                <image src="../../pics/jiantou.png" style="width:150rpx;height:20rpx;"></image>
+                <text class="price" id="view" style="margin-left:6%;font-size:20rpx;width:120rpx">现价:{{item.discount}}</text> 
+                </view>
+                <text class="yundi date" id="riqi" style="text-align: right">{{item.eta}}</text>
+              </view>
+              
+               <view wx:if="{{item.details.compensate=='1'}}">
+                  <view class="layout_horizontal" >
+                    <text style="color:#0b5bf9;margin-left:43%;font-size:26rpx">慢必赔</text>
+                  </view>
+                </view>
+            </view>
+            <view class="layout_horizontal" id="jiekai">
+             <text class="yundi date">
+                <text style="color:rgb(51,51,51);font-size:30rpx">{{item.details.cut_time}}</text>
+                <text style="color:rgb(118,118,118);font-size:22rpx"> 截止收货</text>
+              </text>
+              <text class="yundi date">
+                <text style="color:rgb(51,51,51);font-size:30rpx">{{item.method}}</text>
+              </text>
+            </view>
+            <view class="layout_horizontal" id="shengyu">
+                <text style="color:rgb(51,51,51);font-size:28rpx" id="last">
+                  剩余重量: {{item.details.weight}} KG
+                </text>
+                <text style="color:rgb(51,51,51);font-size:28rpx" id="last">
+                   剩余体积: {{item.details.volume}} CBM
+                </text>
+            </view>
+            <button bindtap='showModel' data-userID="{{item.id}}" data-id="{{bindex}}">详细</button>
+    </view>
+  </block>
+  <text style='margin-left:26%;margin-top:40rpx;color:rgb(102,102,102)'>----------到底啦----------</text>
+   
+</scroll-view>
+</view>

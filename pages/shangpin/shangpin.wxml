@@ -1,0 +1,96 @@
+<!--pages/shangpin/shangpin.wxml-->
+<scroll-view scroll-y style="height:100%;">
+<image src='../../pics/back.png'></image>
+    <view id='top'>
+    <view wx:if="{{items_index.details.discount==0}}">
+      <view wx:if="{{items_index.method!='海卡'}}">
+         <view style='font-size:40rpx;color:rgb(235,129,76)'>${{items_index.price}}+{{items_index.addition.price}}<text style="font-size:25rpx;">/KG</text></view>
+      </view>
+      <view wx:elif="{{items_index.method=='海卡'}}">
+            <view style='font-size:40rpx;color:rgb(235,129,76)'>${{items_index.price}}<text style="font-size:25rpx;">/CBM</text></view>
+      </view>
+    </view>
+    <view wx:if="{{items_index.details.discount!=0}}">
+      <view wx:if="{{items_index.method!='海卡'}}">
+         <view style='font-size:40rpx;color:rgb(235,129,76)'>${{items_index.discount}}<text style="font-size:25rpx;">/KG</text></view>
+      </view>
+      <view wx:elif="{{items_index.method=='海卡'}}">
+            <view style='font-size:40rpx;color:rgb(235,129,76)'>${{items_index.discount}}<text style="font-size:25rpx;">/CBM</text></view>
+      </view>
+      </view>
+      <view class="zan"><text >赞 <text style='font-size:20rpx;'>（{{like}}）</text></text></view>
+      <view style='font-size:50rpx;width:90%;border-bottom:1px solid #e2e2e2'>{{items_index.desc}}</view>
+      <view style="font-size:28rpx;">剩余重量：{{items_index.details.weight}} 公斤 <text style="margin-left:50rpx">剩余体积：{{items_index.details.volume}} 立方</text></view>
+    </view> 
+    <view id='middle'>
+        <view class="layout_vertical">
+            <view wx:if="{{items_index.details.discount==0}}">
+              <view class="layout_horizontal heng">
+                <text class="heng1">起运港</text> <text class="heng2">{{items_index.qiyungang}}</text>
+                </view>
+                <view class="layout_horizontal heng">
+                  <text class="heng1">目的港</text> <text class="heng2">{{items_index.mudigang}}
+                </text>
+                </view>
+            </view>
+            <view wx:elif="{{items_index.details.discount!=0}}">
+            </view>
+            <view class="layout_horizontal heng">
+            <text class="heng1">截关</text> <text class="heng2">{{items_index.details.cut_time}}</text>
+            </view>
+            <view class="layout_horizontal heng">
+            <text class="heng1">开船</text> <text class="heng2">{{items_index.details.cut_end}}</text>
+            </view>
+            <view class="layout_horizontal heng">
+            <text class="heng1">准点率</text> <text class="heng2">96%</text> 
+            </view>
+         
+        </view>
+    </view>
+    <view id='rear'>
+      <text style='font-size:40rpx; margin-left:40%'>详情说明</text>
+      <view style='text-align:3rpx;'>1.若发货人地址超出货代收货距离，发货人需自行按时送货到指定货代仓库，避免延误时效。</view>
+      <view style='text-align:3rpx;'>2.海卡单箱最低起运体积2个立方，单箱低于2个立方按2个立方体积计算。海派空派单箱最低起运重量10KG，单箱小于10KG按照10KG计算</view>
+<view style='text-align:3rpx;'>3.包税渠道为前段海运或空运+后段UPS派送按重量计费，不包税渠道海运按方数计费关税实报实销。不包税，计价单位为方数。包税，计价单位为重量。</view>
+<view style='text-align:3rpx;'>4.以上价格为普货产品到最终Amazon仓库的全部价格。材质货算：体积乘以167。大泡货价格另议</view>
+<view style='text-align:3rpx;'>5.全球禁止入仓的货物，根据《国际海运危险货物规则》和国家标准《危险货物品名表》所列的危险品，目前，平台不接收的货物品名如下（包括但不限于以下品名）： 
+(1)爆炸品：炸药、雷管、火药、子弹、烟花、鞭炮等；
+(2)易燃气体：打火机、打火机油、空气清新剂、摩丝(发胶、头发定型剂)、液化气，灭火器等；
+(3)易燃液体：油漆、酒精、白酒、胶黏剂、粘合剂、丙酮、汽油、柴油、天那水、胶水、 粘合剂、油墨、定型水、指甲油、香水等；
+(4)易燃固体：火柴、硫磺、明胶、硝基、磷、镁、乒乓球、蜡烛等；
+(5)毒性物质：砷、尼古丁、氰化物、氰化钾、杀虫剂、农药等；
+(6)腐蚀品：硫酸、盐酸、氢氧化钠、氢氧化钾、水银、双氧水、电镀用溶液、蓄电池、清洗液、清洁水等；
+(7)杂类：安全气囊、太阳能移动电源、字画、古玩，二手物品等；
+(8)仿牌类：凡是在中国海关和其他国家/地区海关网站上能查到登记信息的任何仿牌货物都禁止入仓，非牌子货需提供品牌申明书；</view>
+<view style='text-align:3rpx;'>6.美国反倾销产品目录
+(1)贱金属及其制品：钢钉、钢管、碳合金钢丝条、金属硅、金刚石锯片、不锈钢货架、不锈钢加压管、定尺碳素钢板、石油专用管材、冷轴碳钢、薄壁矩形钢管、熨衣架及部件、螺纹钢筋、弹簧垫圈、非封闭内置弹簧部件、不锈钢拉制深水槽、冷轧钢板、无缝碳钢和合金钢标准管、管线管和压力管、圆锥滚子轴承、铸铁件、金属镁、镀锌板、重锻造手动工具（斧子、撬杠、锤子、镐头）、钢制高压气瓶
+(2)化学产品：己内酰胺（又称碳酸锂）、聚对苯二甲酸乙二酯膜片和条、聚乙烯醇、高锰酸钾、三聚氰胺、天然猪鬃油漆刷及刷头
+(3)杂项制品：木制卧室家具、复合木地板、硬木胶合板产品，非晶硅织物、晶体硅光伏电池、小直径石墨电极
+(4)机械电气设备及部件：滚球轴承、汽车挡风玻璃、刹车鼓与刹车转子，轮毂，轮胎
+(5)纸及纸制品：铜版纸、格记录纸、薄绵纸、折叠礼品盒、皱纹纸、无涂层纸，低克重热敏纸
+(6)纺织制品：聚酯纤维、画布、编织电热毯，原聚酯棉印花布，窄幅梭织缎带
+(7)预制食品与饮料：淹渍蘑菇罐头、柠檬酸与柠檬酸盐、华糖醇、冷冻的和罐装的暖水虾
+(8)塑料与橡胶制品：复合编织袋、聚乙烯手提袋、新充气工程机械轮胎
+(9)日常生活用品：折叠金属椅子，搪瓷厨具，钢丝衣架，蜡烛（所有石蜡制品），曲别针，铅笔
+(10)家用电器：彩色电视机、家用大型洗衣机
+(11)车船运输设备及部件：自行车、手推车
+(12)建材与玻璃制品：铝型材、双轴土工格栅、镁碳砖
+(13)蔬菜产品：蜂蜜</view>
+<view style='text-align:3rpx;'>7.国家法令禁止流通或寄递的物品，如各种武器、仿真武器、弹药及爆炸物品；仿造的货币及伪造的有价证券；金银；涉及政治等物品以及其他法律、法规随时更新或增加禁运/限运物品。特殊品名需联系客服人员单独确认，申报价值需请按照实际价格申报，如因申报出现清关问题，我司概不负责</view>
+<view style='text-align:3rpx;'>8.订舱需提供装箱单和发票，发票需提供详细品名，海关编码，材质，用途。</view>
+<view style='text-align:3rpx;'>9.货物需贴合格的FBA标签，货物不可以在外箱贴保护膜。货物单边尺寸超过170CM拒收。大尺寸货物定义：
+  <view>(1)两边最短边相加，乘以2加最长边超过310cm</view>
+  <view>(2)单箱超过30kg</view>
+  <view>(3)最长边不能超过120cm,第二长边不得超过77cm,长*宽*高/5000不能超过40KG</view>
+</view>
+<view style='text-align:3rpx;'>10.赔偿：{{items_index.supplier_companies[0].peichang}}
+</view>
+      <view  style='text-align:3rpx;' wx:if="{{items_index.details.compensate=='1'&&items_index.method!='海卡'}}">11.慢必赔：如在指定日期{{items_index.details.dead_date}}未到仓，承诺将按{{items_index.details.money}}公斤/天的价格进行赔付。</view>
+       <view  style='text-align:3rpx;' wx:if="{{items_index.details.compensate=='1'&&items_index.method=='海卡'}}">11.慢必赔：如在指定日期{{items_index.details.dead_date}}未到仓，承诺将按{{items_index.details.money}}立方/天的价格进行赔付。</view>
+    </view>
+</scroll-view>
+<view style='border-top:1px solid #e2e2e2;background:#fff;position:fixed;bottom:0px;width:100%; height:113rpx' class='layout_horizontal'>
+    <button  bindtap="pinlun" class="btn layout_vertical" ><text style="font-size:30rpx">评论</text></button>
+    <button  open-type="contact" bindcontact="handleContact" class="btn layout_vertical"><text style="font-size:30rpx">客服</text></button>
+    <button class="xiadan" bindtap='tijiao' >下单</button>
+</view>

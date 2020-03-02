@@ -1,0 +1,127 @@
+<!--pages/comfirm/comfirm.wxml--> 
+<scroll-view scroll-view scroll-y="{{true}}" style="height:98%;"> 
+  <view class="page-body-info"></view>
+  <view id='top' class='items'>
+    <view>
+      <image src="../../pics/blue.png" style="width:50rpx;height:18rpx"></image>
+      <text style="font-size:30rpx">商品信息</text>
+    </view>
+    <view class='xinxi'>
+      <text style="color:rgb(56,59,59);font-size:32rpx">{{items_index.desc}}</text>
+    </view>
+    <view class='xinxi layout_horizontal'>
+      <view class="layout_vertical" style="font-size:28rpx;width:50%;text-align:left">
+        <text style="color:rgb(107,107,107)">起运港</text>
+        <text style="font-size:38rpx;color:rgb(76,123,254)">{{items_index.qiyungang}}</text>
+      </view>
+      <view class='layout_vertical' style="font-size:28rpx;width:50%;text-align:right">
+      <text style="color:rgb(107,107,107)">出发日期</text><text style="font-size:38rpx;color:rgb(76,123,254)">{{items_index.etd}}</text>
+    </view>
+    </view>
+  </view>
+  <view  id='middle' class='items'>
+  <image src="../../pics/blue.png" style="width:50rpx;height:18rpx"></image>
+      <text style="font-size:30rpx">订单</text>
+        <view class="xinxi border">
+          <view wx:if="{{items_index.details.discount==0}}">
+            <view wx:if="{{items_index.method=='海卡'}}">
+                <input name='dest'style="width:300rpx;display:none" value="{{items_index.mudigang}}"></input>
+                目的港：{{items_index.mudigang}}
+            </view>
+            <view wx:else>
+            <!-- 美线 -->
+              <view wx:if="{{items_index.country=='American'}}">
+                <view wx:if="{{items_index.mudigang=='美东'}}">
+                  <picker bindchange="bindPickerChange" value="{{index}}" range="{{array}}">
+                    <view class="picker">
+                     目的港：{{array[index]}}
+                    </view>
+                  </picker>
+                </view>
+                <view wx:elif="{{items_index.mudigang=='美西'}}">
+                  <picker bindchange="bindPickerChange1" value="{{index1}}" range="{{array1}}">
+                    <view class="picker">
+                     目的港：{{array1[index]}}
+                    </view>
+                  </picker>
+                </view>
+                <view wx:elif="{{items_index.mudigang=='美中'}}">
+                  <picker bindchange="bindPickerChange2" value="{{index2}}" range="{{array2}}">
+                    <view class="picker">
+                      目的港：{{array2[index]}} 
+                    </view>
+                  </picker>
+                </view>
+              </view>
+              <!-- 加拿大线 -->
+              <view  wx:if="{{items_index.country=='Canada'}}">
+                  <view class="picker">
+                      目的港：{{items_index.mudigang}}
+                  </view>
+              </view>
+               <!-- 欧线 -->
+              <view  wx:if="{{items_index.country=='Europe'}}">
+                  <view class="picker">
+                      目的港：{{items_index.mudigang}}
+                  </view>
+              </view>
+               <!-- 日本线 -->
+              <view  wx:if="{{items_index.country=='Japan'}}">
+                   <view class="picker">
+                      目的港：{{items_index.mudigang}}
+                  </view>
+              </view>
+            </view> 
+            </view> 
+            <!-- 抢购 -->
+            <view wx:else>
+               <picker mode="multiSelector" bindchange="bindMultiPickerChange" bindcolumnchange="bindMultiPickerColumnChange" value="{{multiIndex}}" range="{{multiArray}}">
+                <view class="picker">
+                  目的港：{{multiArray[2][multiIndex[2]]}}
+                </view>
+              </picker>
+              </view>
+            <!-- <input wx:else name='dest'style="width:300rpx;" placeholder='请输入目的地或邮编' bindinput="get4"></input> -->
+        </view>
+        <view wx:if="{{items_index.details.discount==0}}">
+          <view wx:if="{{items_index.method!='海卡'}}">
+                <view class="xinxi layout_vertical border">
+                      品名:{{category}}
+                </view>
+              </view>
+          </view>
+          <!-- 抢购 -->
+        <view wx:elif="{{items_index.details.discount!=0}}">
+         <picker bindchange="bindPickerChange3" value="{{index3}}" range="{{array3}}">
+                    <view class="xinxi layout_vertical border">
+                      品名:{{array3[index]}}
+                    </view>
+                  </picker>
+        </view>
+          <picker  mode="date" value="{{dateValue}}" start="2019-01-01" end="2999-12-12" bindchange="datePickerBindchange" id="date">
+            <view class="picker xinxi border" > 提货日期: {{dateValue}}</view>
+          </picker>
+          <view bindtap='dizhi' class='xinxi layout_vertical border'>
+            <text class="layout_horizontal">地址:  {{}}</text>
+            <div class="layout_horizontal " style="margin-left:15rpx">{{seleted_address.address}}</div>
+          </view> 
+          <view  class='xinxi layout_vertical border'>
+            <text class="layout_horizontal">提货： </text>
+            <switch checked="{{switch1Checked}}" bindchange="switch1Change" class="wx-switch-input"/>
+          </view> 
+          <view class='xinxi border' style="border:0px">
+                      <input name='ctn' type="digit"  placeholder='请输入件数' bindinput="get0" style="border-bottom:1px solid #e2e2e2"></input>
+                      <input name='weight' type="digit"  placeholder='请输入重量' bindinput="get1" style="border-left:1px solid #e2e2e2;border-bottom:1px solid #e2e2e2"></input>
+                      <input name='volume' type="digit" placeholder='请输入体积' bindinput="get2" style="border-left:1px solid #e2e2e2;border-bottom:1px solid #e2e2e2"></input>
+                    </view>
+        <!-- <view class='xinxi border' style="border:0px"> -->
+          <!-- <text bindtap="justity" class="panduan">详细数据</text> -->
+        <!-- </view> -->
+          <view  style=" margin-top:10rpx">
+            <text>订单备注:</text>
+            <textarea style="margin-top:2%;" name="area" bindinput="get3" placeholder="请列明品名、是否报关、以及是否购买保险等等。"></textarea>
+          </view>
+      
+  </view>
+  <button bindtap='submit'>优惠下单</button>
+</scroll-view>

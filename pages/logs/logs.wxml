@@ -1,0 +1,141 @@
+<!--logs.wxml-->
+<view class="main">
+<swiper indicator-dots="{{indicatorDots}}"  
+
+              autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}" circular="true" id="top">  
+
+            <block wx:for="{{imgUrls}}" wx:key='item'>  
+ 
+              <swiper-item>  
+
+                  <!-- //<navigator url="{{item.link}}" >   -->
+
+                  <image src="{{item.url}}" class="lunbo" lazy-load='ture'/>  
+
+                  <!-- </navigator>   -->
+
+              </swiper-item>  
+
+            </block>  
+
+    </swiper> 
+  <view class="movie-content-wrapper">
+  <!-- 导航栏 -->
+  <view class="navbar">
+    <block wx:for="{{navbarTitle}}" wx:key="index">
+      <view class="navbar-item {{navbarActiveIndex === index ? 'navbar-item-active' : ''}}" data-navbar-index="{{index}}" catchtap="onNavBarTap">
+        <text>{{item}}</text>
+      </view>
+    </block>
+  </view>
+  <swiper current="{{navbarActiveIndex}}" bindanimationfinish="onBindAnimationFinish" class="swiper">
+    <!-- 包税 -->
+      <swiper-item>
+                <view class="section">
+                  <picker bindchange="bindPickerChange" value="{{index}}" range="{{array}}">
+                    <view class="picker">
+                      起运港：{{default}}
+                    </view>
+                  </picker>
+                  <image src="../../pics/planeicon@2x.png" ></image>
+                  
+                  <picker 
+                    mode="multiSelector" 
+                    bindchange="bindCustomPickerChange"   
+                    bindcolumnchange="bindCustomPickerColumnChange" 
+                    value="{{customIndex}}" 
+                    range="{{onlyArray}}"
+                    >
+                    <view class="picker">
+                      目的港：{{mudigang}}
+                      <!-- {{onlyArray[0][customIndex[0]]}}，{{onlyArray[1][customIndex[1]]}}， -->
+                    </view>
+                </picker>
+                  <!-- <picker bindchange="bindPickerChange1" value="{{index1}}" range="{{array1}}">
+                    <view class="picker">
+                      目的港：{{default1}}
+                    </view>
+                  </picker> -->
+                </view>
+                <!-- 中部 -->
+                <view class='middle'>
+                    <picker bindchange="bindPickerChange3" value="{{index3}}" range="{{array3}}" id='method'>
+                                <view class="picker">
+                                  运输方式:{{default3}} 
+                              </view>
+              
+                      </picker>
+                   <!-- <picker mode="date" value="{{default6}}" bindchange="datePickerBindchange" id="method">
+                     <view class="picker">起运日期:{{default6}}</view>
+                      </picker> -->
+                       <picker bindchange="bindAddressChange" value="{{index6}}" range="{{array6}}" id='method'>
+                                <view class="picker">
+                                  货物品名:{{array6[index6]}}
+                              </view>
+            
+                      </picker>
+                     
+                </view>
+      </swiper-item>
+
+<!-- 不包税 -->
+      <swiper-item>
+                <view class="section">
+                  <picker bindchange="bindPickerChange2" value="{{index2}}" range="{{array2}}">
+                    <view class="picker">
+                      起运港：{{default2}}
+                    </view>
+                  </picker>
+                 <image src="../../pics/planeicon@2x.png" ></image>
+                  <picker 
+                   mode="multiSelector" 
+                    bindchange="bindCustomPickerChange1"   
+                    bindcolumnchange="bindCustomPickerColumnChange1" 
+                    value="{{customIndex1}}" 
+                    range="{{onlyArray1}}"
+                  >
+                    <view class="picker">
+                      目的港：{{mudigang}}
+                    </view>
+                  </picker>
+                </view>
+                <!-- 中部 -->
+                <view class='middle'>
+                    <picker bindchange="bindPickerChange5" value="{{index5}}" range="{{array5}}" id='method'>
+                                <view class="picker">
+                                  运输方式:{{default5}} 
+                              </view>
+              
+                      </picker>
+                      
+                            <!-- <picker mode="date" value="{{default6}}" start="2019-01-01" end="2999-12-12" bindchange="datePickerBindchange" id="method">
+                     <view class="picker"> 起运日期: {{default6}}</view>
+                      </picker> -->
+                </view>
+      </swiper-item>
+</swiper>
+ <button bindtap="submit" class="button">立即查价</button> 
+  </view>
+<div class="layout_horizontal bottom" >
+  <div class="layout_vertical sections">
+    <!-- <div class="iconfont icon-ziyuan sections_div"></div> -->
+    <button open-type="contact" class="btn layout_vertical"  bindcontact="handleContact">
+       <image src="../../pics/rule@2x.png" style="width:100rpx;height:100rpx"></image><text style="font-size:30rpx">客服</text>
+    </button>
+    
+  </div>
+  <!-- <div class="layout_vertical sections"> -->
+    <!-- <div class="iconfont icon-ziyuan sections_div"></div> -->
+    <!-- <button  class="btn layout_vertical"  bindtap="tejia">
+       <image src="../../pics/yiwancheng.png" style="width:100rpx;height:100rpx"></image><text style="font-size:30rpx">特价</text>
+    </button>
+    
+  </div> -->
+  <!-- <text style="margin:200rpx;font-size:30rpx">粤ICP备19072640号</text> -->
+</div>
+  <!-- <image src="../../pics/rule@2x.png" style="width:100rpx;height:100rpx"></image>
+      <button open-type="contact" bindcontact="handleContact" class="btn" style="font-size: 30rpx;">客服</button>
+   
+  </div> -->
+
+</view>

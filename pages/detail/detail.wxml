@@ -1,0 +1,55 @@
+<!--pages/detail/detail.wxml-->
+<view class="main">
+<scroll-view scroll-y style="height:100%;"> 
+      <view class="page-body-info layout_horizontal" ></view>
+      <view class='items_div bg-g'  >
+                    {{history_order.desc}} 
+                    <view>{{history_order.method}}    订单号：{{history_order.orders[0].numbers}}</view>
+                      <view >
+                            起运港：{{history_order.qiyungang}}
+                          目的港：{{history_order.orders[0].dest}}
+                      </view>
+                      <view>
+                            出港时间：{{history_order.etd}}  
+                      </view>
+                      <view>
+                            到达时间：{{history_order.eta}}</view>
+                      <view>
+                            重量：{{history_order.details.weight}} KG
+                            体积：{{history_order.details.volume}} CBM
+                      </view>
+                       <view wx:if="{{history_order.orders[0]==4}}">
+                      <view wx:for="{{history_order.supplier_companies}}" wx:key="index"  style="left:0px">
+                        <view>
+                            联系人：{{history_order.supplier_companies[index].contact_address}}
+                        </view>
+                        <view>
+                            电话：{{history_order.supplier_companies[index].contact_phone}}
+                        </view>
+                      </view>
+                      </view>
+                      <view style="color:red;font-size:35rpx">仅支持.JPG文件上传，图片最大为5MB</view>
+                      <view class="layout_horizontal" style="width40%">
+                        <view class="layout_vertical">
+                          <button bindtap="fapiao" style="margin-top:5%">上传发票</button>
+                          <image data-index="1" style="width:180rpx;height:180rpx;margin-left:20rpx" src="{{fapiao}}" bindtap='previewImg'></image>
+                        </view>
+                        <view class="layout_vertical" style="width40%;margin-left:20rpx">
+                          <button bindtap="xiangdan" style="margin-top:5%">上传箱单</button>
+                          <image data-index="2" style="width:180rpx;height:180rpx;margin-left:20rpx" src="{{xiangdan}}" bindtap='previewImg'></image>
+                          </view>
+                      </view>
+                      <view class="layout_horizontal" style="width40%">
+                          <view class="layout_vertical">
+                              <button bindtap="baoguan" style="margin-top:5%">上传报关单</button>
+                              <image data-index="3" style="width:180rpx;height:180rpx;margin-left:20rpx" src="{{baoguan}}" bindtap='previewImg'></image>
+                            </view>
+                            <view class="layout_vertical" style="width40%;margin-left:20rpx">
+                              <button bindtap="hetong" style="margin-top:5%">上传合同</button>
+                              <image data-index="4" style="width:180rpx;height:180rpx;margin-left:20rpx" src="{{hetong}}" bindtap='previewImg'></image>
+                          </view>
+                      </view>
+                      </view>      
+  </scroll-view>       
+      </view>
+

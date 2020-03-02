@@ -1,0 +1,53 @@
+<view class='main'>
+    <view class="page-body-info layout_horizontal" >
+          <image class="userinfo-avatar" src="{{userInfo.avatarUrl}}"></image> 
+        <view class="user_name">
+          <text class="userinfo-nickname">{{userInfo.nickName}}</text>
+        </view> 
+        <view class="layout_vertical">
+          <view class='dengji'>
+          <text >会员等级：</text>
+          <text >{{level}}</text>
+          </view> 
+          <view class='dengji jine'>
+          <text style="font-size:12px">运费总金额：</text>
+          <text style="font-size:10px">{{amount.total}}</text>
+          </view>
+        </view>
+    </view>
+        <!-- 我的订单 -->
+        <view class='layout_horizontal options dingdan' style="width: 87%;position: absolute;left:2.5%;border:0px;padding:30rpx;">
+        <text style="position:absolute">我的订单</text>
+            <view class='layout_vertical' bindtap="jump"  wx:for="{{xiangmu}}" wx:key="image_url" data-id='{{item.number}}'>
+              <image src='{{item.image_url}}'>
+              </image>
+              <text>{{item.text}}
+              </text>
+            </view>
+          <!-- </block> -->
+        </view>
+  <view class=" option" bindtap='dizhi' style="margin-top:200rpx;">
+    <view id="view">
+    地址管理
+      <text class="iconfont position icon-jinru"></text>
+      </view> 
+  </view>
+  <view class=" option" bindtap='shopping' >
+    <view id="view">
+    购物车
+      <text class="iconfont position icon-jinru"></text>
+      </view> 
+  </view>
+   <view class=" option" bindtap="yijian">
+    <view id="view">
+    我的优惠券
+      <text class="iconfont position icon-jinru"></text> 
+       </view> 
+  </view>
+  <view class=" option" bindtap="yijian">
+     <view id="view">
+    设置
+      <text class="iconfont position icon-jinru"></text> 
+       </view> 
+  </view>
+</view>
