@@ -122,17 +122,28 @@
     <button open-type="contact" class="btn layout_vertical"  bindcontact="handleContact">
        <image src="../../pics/rule@2x.png" style="width:100rpx;height:100rpx"></image><text style="font-size:30rpx">客服</text>
     </button>
+     <!-- <button  class="btn layout_vertical" >
+       <image src="../../pics/rule@2x.png" style="width:100rpx;height:100rpx"></image><text style="font-size:30rpx">仓库代码</text>
+    </button> -->
+  </div>
+   <div class="layout_vertical sections">
+    <!-- <div class="iconfont icon-ziyuan sections_div"></div> -->
+    <button  class="btn layout_vertical"  bindtap="daima">
+       <image src="../../pics/yiwancheng.png" style="width:100rpx;height:100rpx"></image><text style="font-size:30rpx">仓库</text>
+    </button>
     
   </div>
+  <!-- <text style="margin:200rpx;font-size:30rpx">粤ICP备19072640号</text> -->
+</div>
   <!-- <div class="layout_vertical sections"> -->
     <!-- <div class="iconfont icon-ziyuan sections_div"></div> -->
     <!-- <button  class="btn layout_vertical"  bindtap="tejia">
        <image src="../../pics/yiwancheng.png" style="width:100rpx;height:100rpx"></image><text style="font-size:30rpx">特价</text>
-    </button>
+    </button> -->
     
-  </div> -->
+  <!-- </div> -->
   <!-- <text style="margin:200rpx;font-size:30rpx">粤ICP备19072640号</text> -->
-</div>
+<!-- </div> -->
   <!-- <image src="../../pics/rule@2x.png" style="width:100rpx;height:100rpx"></image>
       <button open-type="contact" bindcontact="handleContact" class="btn" style="font-size: 30rpx;">客服</button>
    

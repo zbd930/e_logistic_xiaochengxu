@@ -95,7 +95,6 @@ App({
       },
       header: { 'content-type': 'application/x-www-form-urlencoded' },
       success: function (res) {
-        console.log(res.data)
         that.globalData.listData = res.data;
       },
       fail: function (res) {
@@ -108,8 +107,8 @@ App({
   } , 
   globalData: {
     // url_new:"http://localhost:8080/",
-   //  url_old: "https://www.yikuajing.cn/elogistic/", 
-   url_old: "http://localhost:8091/elogistic/", 
+    url_old: "https://www.yikuajing.cn/elogistic/", 
+  //  url_old: "http://localhost:8091/elogistic/", 
     // url_old: "http://localhost:8080/", 
     status:null,
     userInfo: null,

@@ -14,7 +14,9 @@ Page({
     contact_phone:"",
     contact_addree:"",
     contact_mail:"",
-    code:""
+    code:"",
+    shareshow1: false,
+    ccemail:[]
          },
   /// 按钮触摸开始触发的事件
   touchStart: function (e) {
@@ -160,6 +162,34 @@ Page({
       })
     }
    
+  },
+  addemail:function(e){
+    var that = this;
+    var shareshow1 = that.data.shareshow1
+    that.setData({
+      shareshow1: !that.data.shareshow1
+    })
+  },
+  cc1:function(e){
+    // var items="ccmail["+0+"]"
+    this.setData({
+      'ccemail[0]': e.detail.value
+    })
+  },
+  cc2:function(e){
+    // var items="ccmail["+1+"]"
+    this.setData({
+      'ccemail[1]': e.detail.value
+    })
+  },
+  cc3:function(e){
+    // var items="ccmail["+2+"]"
+    this.setData({
+      'ccemail[2]': e.detail.value
+    })
+  },
+  proventD:function(){
+
   },
   contactemailInput:function(e){
     this.setData({
@@ -367,13 +397,15 @@ Page({
    * 生命周期函数--监听页面隐藏
    */
   onHide: function () {
-
+  
   },
 
   /**
    * 生命周期函数--监听页面卸载
    */
   onUnload: function () {
+    var array = JSON.stringify(this.data.ccemail);
+    console.log(array)
     wx.request({
       url: app.globalData.url_old +'items/orders.do',
       data: {

@@ -1,0 +1,47 @@
+<!--pages/warehouse/warehouse.wxml-->
+<!--pages/search/search.wxml-->
+
+<!-- 左侧滚动栏 -->
+<!-- 左侧导航 -->
+  <view class='tui-fixed-left'>
+    <scroll-view class='tui-city-scroll' scroll-x="true" scroll-y="true" style='height:92%;' scroll-with-animation="true" scroll-top="{{leftMenuTop}}">
+    <text class="menu-item {{index === currentActiveIndex ? 'menu-active' : ''}}" wx:for="{{navList}}" wx:key="unique" data-index="{{index}}" id='{{index}}' catchtap='changeMenu'>{{item.c_name}}</text>
+    </scroll-view>
+  </view>
+<!-- 搜索 -->
+<view class='search'>
+ <input type='text'
+ placeholder='请输入您要搜索的内容'
+ bindinput='input'
+ bindconfirm='confirm'/>
+ <icon type='search' class='icons'></icon>
+  
+</view>
+  <!-- 右侧滚动商品 -->
+  <view class='content'>
+    <scroll-view class='tui-city-scroll-y' scroll-y="true" style='height:92%;' scroll-with-animation="true" scroll-top="{{rightProTop}}" bindscroll="scroll">
+      <view class='pro-item' wx:for="{{navList}}" wx:key="unique">
+        <view class='tui-list-head' id='NAV{{index}}'>{{item.c_name}}</view>
+        <view class='tui-list-li'>
+          <view class='goods-box' wx:for-item='items' wx:for="{{item.list}}" wx:key="unique" >
+            <!-- <image class='goodsImg' src='{{items.url}}'></image> -->
+            <view class='goodsName' style="display:inline-block">仓库代码: {{items.goodsName}}</view>
+            <view class='goodsName' style="display:inline-block">
+            仓库地址: {{items.goodsAddress}}    
+            <text wx:if="{{items.goodsArea!=''}}" style="margin-left:30rpx">邮编: {{items.goodsArea}}</text></view>
+          </view>
+        </view>
+      </view>
+    </scroll-view>
+  </view>
+  <!-- 搜索 -->
+<!-- <view class='search'>
+ <input type='text'
+ placeholder='请输入您要搜索的内容'
+ bindinput='input'
+ bindconfirm='confirm'/>
+ <icon type='search' class='icons'></icon>
+  <view wx:for="{{list}}" wx:key='' class='lists'>
+    <text wx:if="{{item.show}}">{{item.name}}</text>
+  </view>
+</view> -->

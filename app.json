@@ -10,7 +10,8 @@
     "pages/mine/mine",
     "pages/index/index",
     "pages/detail/detail",
-    "pages/shopping/shopping"
+    "pages/shopping/shopping",
+    "pages/warehouse/warehouse"
   ],
   "window": {
     "backgroundTextStyle": "dark",

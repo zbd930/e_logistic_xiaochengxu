@@ -26,7 +26,7 @@ Page({
     navbarActiveIndex: 0,
     array: ['深圳', '广州', '义乌', '上海'],
     array1: ['美西', '美东','美中'],
-    array2: ['深圳', '广州', '义乌', '上海'],
+    array2: ['深圳', '广州', '义乌', '上海', '宁波'],
     array3: ['海运', '海运（快船）','空运', '空运(直飞)', '空运(带电)'],
     array4: ['FTW1','CLT2','ONT8','LAX9','CVG3','LGB8'],
     array5: ['海运'],
@@ -293,7 +293,11 @@ Page({
       
     
     },
-     
+  daima:function(e){
+      wx.navigateTo({
+        url: '/pages/warehouse/warehouse',
+      })
+  },
  tejia:function(e){
    var items = []
    wx.request({
@@ -337,11 +341,11 @@ Page({
             qiyungang: "义乌"
           })
         }
-          if (e.detail.value == 3) {
-            this.setData({
-              default: array[index],
-              qiyungang: "上海"
-            })
+        if (e.detail.value == 4) {
+          this.setData({
+            default: array[index],
+            qiyungang: "宁波"
+          })
     }
    
   },
@@ -401,7 +405,12 @@ Page({
         default2: array[index],
       })
     }
-
+    if (e.detail.value == 4) {
+      this.setData({
+        qiyungang: "宁波",
+        default2: array[index],
+      })
+    }
   },
   bindPickerChange3: function (e) {
     let index = e.detail.value
@@ -625,7 +634,6 @@ Page({
     wx.login({
       success: function (res) {
         // 发送 res.code 到后台换取 openId, sessionKey, unionId
-        console.log(res)
         if (res.code) {
           // console.log('获取用户登录态success！' + res.code)
           app.globalData.code = res.code
@@ -674,7 +682,6 @@ Page({
       customIndex1: this.data.customIndex1,
       onlyArray1: this.data.onlyArray1,
     };
-    console.log(data1.customArray1.length)
     for (var i = 0; i < data1.customArray1.length; i++) {
       data1.onlyArray1[0].push(data1.customArray1[i].name);
     }
@@ -684,7 +691,6 @@ Page({
     for (var k = 0; k < data1.customArray1[data1.customIndex1[0]].dept[data1.customIndex1[1]].product.length; k++) {
       data1.onlyArray1[2].push(data1.customArray1[data1.customIndex1[0]].dept[data1.customIndex1[1]].product[k].name);
     }
-    console.log(data1)
     this.setData(data1);
     var data = {
       customArray: this.data.customArray,
