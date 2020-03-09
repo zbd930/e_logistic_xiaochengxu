@@ -13,6 +13,11 @@ Page({
     baoguan: "",
     imgArr:""
   },
+  upload:function(e){
+   wx.navigateTo({
+      url: '/pages/upload/upload?order='+e.currentTarget.dataset.order,
+   })   
+  },
  fapiao:function(e){
    var that=this
     wx.chooseImage({

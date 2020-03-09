@@ -1,7 +1,8 @@
 {
   "pages": [
-    "pages/upload/upload",
+  
     "pages/logs/logs",
+    "pages/upload/upload",
     "pages/comfirm/comfirm",
     "pages/comments/comments",
     "pages/shangpin/shangpin",

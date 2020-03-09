@@ -30,3 +30,6 @@ image{
 .bg-g{
   background: #E6F3F9;
 }
+.upload{
+  width:300rpx;
+}
