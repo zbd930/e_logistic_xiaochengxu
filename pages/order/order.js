@@ -58,9 +58,9 @@ Page({
       header: { 'content-type': 'application/x-www-form-urlencoded' },
       success: function (res) {
         app.globalData.listData=res.data;
-        // that.setData({
-        //   listData:res.data
-        // })
+        that.setData({
+          listData:res.data
+        })
       },
       fail: function (res) {
         console.log("获取订单错误")
