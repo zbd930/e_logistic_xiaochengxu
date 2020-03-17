@@ -640,7 +640,13 @@ Page({
         } else {
           // console.log('获取用户登录态失败！' + res.errMsg)
         }
-        app.getOpenId(app.globalData.code)
+        if(app.globalData.encryptedData==""&&app.globalData.iv==""){
+          setTimeout(function(){
+            app.getunionId(app.globalData.code,app.globalData.encryptedData,app.globalData.iv)
+          },3000)
+        }else{
+          app.getunionId(app.globalData.code,app.globalData.encryptedData,app.globalData.iv)
+        } 
       },
       complete: function () {
         var that = this;

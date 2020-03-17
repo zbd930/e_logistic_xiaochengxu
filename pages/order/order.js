@@ -53,7 +53,7 @@ Page({
     wx.request({
       url: app.globalData.url_old + 'items/orders.do',
       data: {
-        openid: app.globalData.openid,
+        unionId: app.globalData.unionId,
       },
       header: { 'content-type': 'application/x-www-form-urlencoded' },
       success: function (res) {
@@ -80,7 +80,7 @@ Page({
       header: { 'content-type': 'application/x-www-form-urlencoded' },
       data: {
         topicid: that.data.user_id,
-        openid: that.data.numbers,
+        unionId: that.data.numbers,
       },
       url: app.globalData.url_old + 'dianzan/add.do',
       success: function (e) {

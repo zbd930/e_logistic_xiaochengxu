@@ -53,7 +53,7 @@ Page({
     wx.request({
       url: app.globalData.url_old +"shopping/redis_get.do",
       data:{
-        openid: app.globalData.openid,
+        unionId: app.globalData.unionId,
       },
       method:"GET",
       success:function(res){

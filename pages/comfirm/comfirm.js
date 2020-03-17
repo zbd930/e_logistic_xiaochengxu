@@ -515,6 +515,7 @@ Page({
               url: app.globalData.url_old + 'wechat/pay.do',        
               data: {
               openid: app.globalData.openid,
+              unionId: app.globalData.unionId,
               ctn: that.data.ctn,
               weight: that.data.weight,
               volume: that.data.volume,
@@ -607,6 +608,7 @@ Page({
               url: app.globalData.url_old + 'wechat/pay_miaosha.do',        
               data: {
               openid: app.globalData.openid,
+              unionId:app.globalData.unionId,
               ctn: that.data.ctn,
               weight: that.data.weight,
               volume: that.data.volume,

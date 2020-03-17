@@ -70,7 +70,7 @@ Page({
                title: '提交结果',
                content: res.data,
              })
-             app.getaddress(app.globalData.openid)
+             app.getaddress(app.globalData.unionId)
              wx.navigateBack({
                
              })
@@ -92,7 +92,7 @@ Page({
       wx.request({
         url: app.globalData.url_old + 'address/valid_email.do',
         data: {
-          openid: app.globalData.openid,
+          unionId: app.globalData.unionId,
           email: this.data.contact_mail
         },
         method: "post",
@@ -127,7 +127,7 @@ Page({
           address: this.data.contact_addree,
           phone: this.data.contact_phone,
           name: this.data.contact_name,
-          openid: app.globalData.openid,
+          unionId: app.globalData.unionId,
           email: this.data.contact_mail,
           code:this.data.code
         },
@@ -140,7 +140,7 @@ Page({
             content: res.data,
             success:function(e){
               if(e.confirm){
-                app.getaddress(app.globalData.openid)
+                app.getaddress(app.globalData.unionId)
                 wx.navigateBack({
 
                 })
@@ -409,7 +409,7 @@ Page({
     wx.request({
       url: app.globalData.url_old +'items/orders.do',
       data: {
-        openid: app.globalData.openid,
+        unionId: app.globalData.unionId,
       },
       header: { 'content-type': 'application/x-www-form-urlencoded' },
       success: function (res) {

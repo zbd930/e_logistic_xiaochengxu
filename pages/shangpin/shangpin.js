@@ -22,7 +22,7 @@ Page({
     //   header: { 'content-type': 'application/x-www-form-urlencoded' },
     //   data:{
     //     topicid:this.data.items_index.user_id,
-    //     openid:app.globalData.openid
+    //     unionId:app.globalData.unionId
     //   },
     //   url: app.globalData.url_old+'dianzan/add.do',
     //   success:function(e){

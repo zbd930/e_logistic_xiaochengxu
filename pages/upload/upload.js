@@ -14,7 +14,7 @@ Page({
    */
   onLoad: function (options) {
     this.setData({
-      url:'http://192.168.1.111:8091/elogistic/uploadfile.jsp?order='+options.order
+      url:'https://www.yikuajing.cn/elogistic/uploadfile.jsp?order='+options.order
     })
   },
 

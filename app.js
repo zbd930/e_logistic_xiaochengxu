@@ -16,6 +16,9 @@ App({
           wx.getUserInfo({
             success: res => {
               // 可以将 res 发送给后台解码出 unionId
+              // console.log(res.encryptedData)
+              this.globalData.iv=res.iv
+              this.globalData.encryptedData=res.encryptedData
               this.globalData.userInfo = res.userInfo
               this.globalData.user_Name = res.userInfo.nickName
               //由于 getUserInfo 是网络请求，可能会在 Page.onLoad 之后才返回
@@ -29,12 +32,12 @@ App({
       }
     })
   },
-  getaddress: function (openid){
+  getaddress: function (unionId){
     var that = this;
     wx.request({
       url: that.globalData.url_old+'address/get.do',
       data: {
-        openid: openid,
+        unionId: unionId,
       },
       header: { 'content-type': 'application/x-www-form-urlencoded' },
       success:function(res){
@@ -42,23 +45,26 @@ App({
       }
     })
   },
-  getOpenId: function (code) {
-    var that = this;
-    wx.showLoading({
-      title: '加载中',
-    })
+  getunionId: function (code,encryptedData,iv) {
+    var that = this; 
     wx.request({
-      url: that.globalData.url_old+'wechat/getopenid.do',
+      url: that.globalData.url_old+'wechat/getunionId.do',
       data: {
         code: code,
+        encryptedData: encryptedData,
+        iv: iv,
       },
-      header: { 'content-type': 'application/json' },
+      header: {
+        'content-type': 'application/x-www-form-urlencoded'
+    },
       success: function (res) {
-        that.globalData.openid = res.data.openid;
+          console.log(res.data)
+          that.globalData.openid = res.data.userInfo.openId;
+          that.globalData.unionId = res.data.userInfo.unionId;
         wx.request({
           url: that.globalData.url_old +'address/get.do',
           data: {
-            openid: that.globalData.openid,
+            unionId: that.globalData.unionId,
           },
           header: { 'content-type': 'application/x-www-form-urlencoded' },
           success: function (res) {
@@ -67,7 +73,7 @@ App({
             wx.request({
               url: that.globalData.url_old +'items/get.do',
               data: {
-                openid: that.globalData.openid,
+                unionId: that.globalData.unionId,
               },
               header: { 'content-type': 'application/x-www-form-urlencoded' },
               success:function(e){
@@ -91,10 +97,11 @@ App({
     wx.request({
       url: that.globalData.url_old + 'items/orders.do',
       data: {
-        openid: that.globalData.openid,
+        unionId: that.globalData.unionId,
       },
       header: { 'content-type': 'application/x-www-form-urlencoded' },
       success: function (res) {
+        console.log(res.data)
         that.globalData.listData = res.data;
       },
       fail: function (res) {
@@ -108,8 +115,10 @@ App({
   globalData: {
     // url_new:"http://localhost:8080/",
     url_old: "https://www.yikuajing.cn/elogistic/", 
-  //  url_old: "http://localhost:8091/elogistic/", 
-    // url_old: "http://localhost:8080/", 
+    //  url_old: "http://192.168.1.111:8091/elogistic/", 
+     unionId:null,
+     encryptedData:"",
+     iv:"",
     status:null,
     userInfo: null,
     code: null,
