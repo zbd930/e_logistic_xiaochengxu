@@ -1,6 +1,7 @@
 @import "./utils/icon.wxss";
 @import "./utils/icon1.wxss";
 @import "./utils/icon3.wxss";
+@import "./utils/iconfont.wxss";
 /**app.wxss**/
 page{
    width: 100%;

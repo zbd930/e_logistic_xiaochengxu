@@ -49,6 +49,9 @@ Page({
       hasUserInfo: true,
     })
     setTimeout(function () {
+      if(e.detail.encryptedData!=""&&e.detail.iv!=""){
+      app.getunionId(app.globalData.code,e.detail.encryptedData,e.detail.iv)  
+      }
       wx.switchTab({
         url: '../logs/logs',
       })

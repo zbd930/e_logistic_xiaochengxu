@@ -28,8 +28,8 @@
   left: 0;
   top: 0;
   z-index: 500;
-  width: 50%;
-  margin-left:25%; 
+  width:90%;
+  margin-left:5%; 
   height: 50rpx;
   flex-direction: row;
   text-align: center;
@@ -61,7 +61,8 @@
 } 
 .section picker{
   width: 50%;
-  text-align: center
+  text-align: center;
+  
 }
 .section image{
   width: 80rpx;
@@ -81,6 +82,7 @@
 .middle picker{
   text-align: center;
 }
+
 .middle input{
  width: 60%;
  margin-left:12%;
@@ -152,4 +154,7 @@
   padding: 0rpx;
   text-align: center;
   background-color: transparent;
+}
+.details{
+  border: 1px solid #000;
 }

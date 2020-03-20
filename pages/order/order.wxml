@@ -69,7 +69,7 @@
       <swiper-item >
         <scroll-view scroll-y="{{true}}" style="height:100%;" >
             <view class="list">   
-             <view class='items_div bg-g' wx:if="{{item.orders[0].status==1||item.orders[0].status==2}}" wx:for="{{listData}}" wx:key="item">
+             <view class='items_div bg-g' wx:if="{{item.orders[0].status==1||item.orders[0].status==2||item.orders[0].status==3}}" wx:for="{{listData}}" wx:key="item">
             <view class=" layout_horizontal" id="top">
              <text  id="desc">{{item.desc}}</text>
              <text  id="desc1">{{item.method}}</text>
