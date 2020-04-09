@@ -105,7 +105,44 @@
                       </picker> -->
                 </view>
       </swiper-item>
-      <!-- 不包税 -->
+      <!-- 小包 -->
+      <swiper-item>
+                <view class="section">
+                  <picker bindchange="bindPickerChange2" value="{{index2}}" range="{{array2}}">
+                    <view class="picker">
+                      起运港：{{default2}}
+                    </view>
+                  </picker>
+                 <image src="../../pics/planeicon@2x.png" ></image>
+                   <picker bindchange="bindPickerChange8" value="{{index8}}" range="{{array8}}">
+                    <view class="picker">
+                      目的港：{{mudiguo}}
+                    </view>
+                  </picker>
+                </view>
+                <!-- 中部 -->
+                <view class='middle'>
+                   <view class="picker layout_horizontal">
+                      <text >重量</text>
+                        <input   maxlength="5" type="number" bindinput="weightInput" class="details" />
+                        <text >KG</text>
+                      <text class="iconfont tianjiajiahaowubiankuang">
+                      </text>
+                   </view>              
+                </view>
+                  <view class='middle'>
+                   <view class="picker layout_horizontal ">
+                    <!-- <text class="iconfont Group-">
+                      </text> -->
+                      <text >体积</text>
+                      <input  maxlength="5" type="number" bindinput="volumeInput" class="details" /> 
+                      <text >CBM</text> 
+                      <text class="iconfont tianjiajiahaowubiankuang">
+                      </text>
+                   </view>              
+                </view>
+      </swiper-item>
+       <!-- 快递 -->
       <swiper-item>
                 <view class="section">
                   <picker bindchange="bindPickerChange2" value="{{index2}}" range="{{array2}}">
@@ -130,25 +167,22 @@
                 <view class='middle'>
                    <view class="picker layout_horizontal">
                       <text >重量</text>
-                      <text class="iconfont Group-">
-                      </text>
                         <input   maxlength="1" type="tel" bindinput="weightInput" class="details" />
                       <text class="iconfont tianjiajiahaowubiankuang">
                       </text>
                    </view>              
                 </view>
                   <view class='middle'>
-                   <view class="picker layout_horizontal">
-                    <text class="iconfont Group-">
-                      </text>
-                      <text>体积</text>
+                   <view class="picker layout_horizontal ">
+                    <!-- <text class="iconfont Group-">
+                      </text> -->
+                      <text >体积</text>
                       <input   maxlength="1" type="tel" bindinput="volumeInput" class="details" />  
                       <text class="iconfont tianjiajiahaowubiankuang">
                       </text>
                    </view>              
                 </view>
       </swiper-item>
-      
 </swiper>
  <button bindtap="submit" class="button">立即查价</button> 
   </view>

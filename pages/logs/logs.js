@@ -31,8 +31,8 @@ Page({
     array4: ['FTW1','CLT2','ONT8','LAX9','CVG3','LGB8'],
     array5: ['海运'],
     array6: ["", "普货", '箱包', '鞋子', "服饰", "成人用品", "车载电子", "平板", "手表", "机顶盒","3C类电子"],
-    array2: ['深圳', '广州', '义乌', '上海', '宁波'],
-    array7: ["", "日本", '箱包', '鞋子', "服饰", "成人用品", "车载电子", "平板", "手表", "机顶盒","3C类电子"],
+    array8: ['韩国', '日本', '美国', '荷兰', '俄罗斯', '意大利', '英国'],
+    array7: ["", "普货", '箱包', '鞋子', "服饰", "成人用品", "车载电子", "平板", "手表", "机顶盒","3C类电子"],
     dateValue: '',
     navbarTitle: [
       "包税",
@@ -41,6 +41,8 @@ Page({
       "快递",
     ],
     index6:0,
+    weight:'',
+    volume:'',
     default: '',
     default1: '',
     default2: '',
@@ -50,6 +52,7 @@ Page({
     default6: '',
     country:'',
     dest_country:'',
+    mudiguo:'',
     //当前选中数组的下标值
     customIndex: [0, 0, 0],
     //当前选中数组
@@ -534,7 +537,9 @@ Page({
     })
     var that = this;
     var items=[];
-    if (that.data.qiyungang != "" && that.data.mudigang != "" && that.data.method != "" && that.data.catogory!=""){
+    //包税或海卡渠道
+    console.log(that.data.weight+"==="+that.data.volume+"==="+that.data.navbarActiveIndex+"==="+that.data.mudiguo);
+    if (that.data.qiyungang != "" && that.data.mudigang != "" && that.data.method != "" && that.data.catogory!=""&&that.data.navbarActiveIndex==1||that.data.navbarActiveIndex==0){
       wx.request({
         url: app.globalData.url_old +'items/get_items.do',
         data: {
@@ -563,10 +568,29 @@ Page({
         },
       })
     }
-    else{
-      wx.showToast({
-        image:"../../pics/error.png",
-        title: '输入框不能为空',
+    // else if(that.data.qiyungang == "" || that.data.mudigang == "" || that.data.method == "" || that.data.catogory==""&&that.data.navbarActiveIndex==1||that.data.navbarActiveIndex==0){
+    //   wx.showToast({
+    //     image:"../../pics/error.png",
+    //     title: '输入框不能为空',
+    //   })
+    // }
+    //小包或者快递渠道
+    else if(that.data.weight!=""&&that.data.volume!=""&&that.data.navbarActiveIndex==2||that.data.navbarActiveIndex==3&&that.data.mudiguo!=''){
+      wx.request({
+        url: app.globalData.url_old +'items/get_xiaobao.do',
+        data: {
+          qiyungang: that.data.qiyungang,
+          mudiguo: that.data.mudiguo,
+          weight: that.data.weight,
+          volume: that.data.volume,
+        },
+        method:"POST",
+        header: { 'content-type': 'application/x-www-form-urlencoded' },
+        success: function (res) {
+          console.log(res)
+        },
+        fail: function (res) {
+        },
       })
     }
       
@@ -597,7 +621,18 @@ Page({
      },
    })
  },
-
+//重量
+weightInput:function(e){
+  this.setData({
+    weight:e.detail.value
+  })
+},
+//体积
+volumeInput:function(e){
+  this.setData({
+    volume:e.detail.value
+  })
+},
 // 起运港
   bindPickerChange: function (e) {
     let index = e.detail.value
@@ -753,6 +788,13 @@ Page({
         method: "海卡"
       })
     }
+  }, 
+  //小包目的国
+  bindPickerChange8: function (e) {
+    let array = this.data.array8
+    this.setData({
+      mudiguo:array[e.detail.value]
+    })
   }, 
   onNavBarTap: function (event) {
     // 获取点击的navbar的index

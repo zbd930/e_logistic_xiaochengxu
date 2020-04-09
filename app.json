@@ -2,13 +2,13 @@
   "pages": [
   
     "pages/logs/logs",
+    "pages/items/items",  
     "pages/upload/upload",
     "pages/comfirm/comfirm",
     "pages/comments/comments",
     "pages/shangpin/shangpin",
     "pages/dizhi/dizhi",
     "pages/order/order",
-    "pages/items/items",
     "pages/mine/mine",
     "pages/index/index",
     "pages/detail/detail",

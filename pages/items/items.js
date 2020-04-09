@@ -15,7 +15,9 @@ Page({
    * 页面的初始数据
    */
   data: {
-    items:[],
+    items:[
+      
+    ],
     sentence: '',
     show: false,
     backgroundVisible: false,
