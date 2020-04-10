@@ -17,6 +17,16 @@
   background-color:#fff; 
   border-radius: 20rpx;
 } 
+.items1{
+  position: relative;
+  margin-top:20rpx;
+  margin-left:2.5%;
+  padding-top:30rpx;
+  width: 95%;
+  height: 450rpx;
+  background-color:#fff; 
+  border-radius: 20rpx;
+} 
 .lunchuan{
   position: absolute;
   left: 10rpx;

@@ -588,6 +588,15 @@ Page({
         header: { 'content-type': 'application/x-www-form-urlencoded' },
         success: function (res) {
           console.log(res)
+          for (var i = 0; i < res.data.length; i++) {
+            items.push(res.data[i])
+          }
+          app.globalData.items = items
+          wx.hideLoading()
+          wx.navigateTo({
+            url: '../xiaobao/xiaobao',
+          })
+        
         },
         fail: function (res) {
         },

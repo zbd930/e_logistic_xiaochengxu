@@ -57,7 +57,7 @@ Page({
     })
     console.log(that.data.items)
     if(that.data.items.length>0){
-      if(that.data.items[0].discount!=0){
+      if(that.data.items[0].discount!=0&&that.data.items[0].method!="小包"&&that.data.items[0].method!="快递"){
         wx.showLoading({
           title: '加载中',
         })

@@ -3,19 +3,20 @@
 
 <scroll-view scroll-y="true" style="height:100%; color:black;">
   <block wx:for="{{items}}" wx:key='item' wx:for-index="bindex">
-      <view wx:if="{{item.method=='小包'||item.method=='快递'}}">
-        <view class=" layout_horizontal" id="top">
-                <text class="title desc" id="desc">{{item.desc}}
-                <text class="desc" style="text-align:right">{{item.supplier_companies[0].company_name}}</text>
-                </text>
-                <image src="../../pics/lunchuan.png"></image>
-        </view>
+       <view class="items" wx:if="{{item.method=='小包'||item.method=='快递'}}">
+          <view class=" layout_horizontal " id="top">
+                  <text class="title desc" id="desc">{{item.desc}}
+                  <text class="desc" style="text-align:right">{{item.supplier_companies[0].company_name}}</text>
+                  </text>
+                  <image src="../../pics/lunchuan.png">
+                  </image>
+          </view> 
          <view class="div layout_vertical">
-              <text>总费用:{{item.totalprice}}</text>
+              <text>总费用:{{item.price_xiaobao.amount}}</text>
               <text>时效:{{item.timetable}}</text>
          </view>
-          <button bindtap='showModel' data-userID="{{item.id}}" data-id="{{bindex}}">详细</button>
-      </view> 
+          <button>下单</button> 
+      </view>
       <view wx:elif="{{item.method!='小包'||item.method!='快递'}}">
         <view class="items" wx:if="{{item.details.discount==0}}">
                 <view class=" layout_horizontal" id="top">

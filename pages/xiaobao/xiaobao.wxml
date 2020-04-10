@@ -1,0 +1,8 @@
+<!--pages/xiaobao/xiaobao.wxml-->
+<view class="top">
+  <image src="../../pics/menu1.png" style="top_image">
+  </image>
+</view>
+<view class="middle">
+  
+</view>
