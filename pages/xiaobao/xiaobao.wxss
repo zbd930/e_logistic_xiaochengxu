@@ -6,7 +6,21 @@
 }
 .middle{
   position: absolute;
-  width: 80%;
-  margin-left:10%;
+  width: 90%;
+  margin-left:5%;
   border-radius: 30rpx;
+  top:480rpx;
+  background: #fff;
+  padding-top:30rpx;
+}
+.picker{
+  width: 33%;
+}
+.picker text{
+  margin:0 auto;
+}
+.plane{
+  width: 80rpx;
+  height: 80rpx;
+  margin-left:60rpx;
 }

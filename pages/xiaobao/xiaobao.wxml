@@ -3,6 +3,14 @@
   <image src="../../pics/menu1.png" style="top_image">
   </image>
 </view>
-<view class="middle">
-  
+<view class="middle layout_horizontal ">
+      <view class="picker layout_horizontal">
+          <text >起运港</text>
+      </view>
+       <view class="picker" >
+         <image src="../../pics/planeicon@2x.png" class="plane"></image>
+      </view>
+      <view class="picker layout_horizontal">
+          <text >目的港</text>
+      </view>
 </view>
