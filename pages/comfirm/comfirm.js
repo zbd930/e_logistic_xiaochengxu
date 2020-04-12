@@ -530,6 +530,7 @@ Page({
               chaigui: that.data.items_index.mudigang,
               category:that.data.category,
               method:that.data.items_index.method,
+              user_id:0,
               country:that.data.items_index.country,
               ups:0    
               },
@@ -624,6 +625,7 @@ Page({
               category:that.data.category,
               method:that.data.items_index.method,
               country:that.data.items_index.country,
+              user_id:0,
               ups:0    
               },
               header: {   

@@ -538,7 +538,6 @@ Page({
     var that = this;
     var items=[];
     //包税或海卡渠道
-    console.log(that.data.weight+"==="+that.data.volume+"==="+that.data.navbarActiveIndex+"==="+that.data.mudiguo);
     if (that.data.qiyungang != "" && that.data.mudigang != "" && that.data.method != "" && that.data.catogory!=""&&that.data.navbarActiveIndex==1||that.data.navbarActiveIndex==0){
       wx.request({
         url: app.globalData.url_old +'items/get_items.do',
@@ -587,7 +586,10 @@ Page({
         method:"POST",
         header: { 'content-type': 'application/x-www-form-urlencoded' },
         success: function (res) {
-          console.log(res)
+          app.globalData.qiyungang=that.data.qiyungang,
+          app.globalData.mudiguo=that.data.mudiguo,
+          app.globalData.xiaobao_weight=that.data.weight,
+          app.globalData.xiaobao_volumn=that.data.volume
           for (var i = 0; i < res.data.length; i++) {
             items.push(res.data[i])
           }
@@ -1109,6 +1111,7 @@ volumeInput:function(e){
       default5: "",
       qiyungang: "",
       mudigang: "",
+      mudiguo: "",
       method: "",
       default6: "",
       index6:0

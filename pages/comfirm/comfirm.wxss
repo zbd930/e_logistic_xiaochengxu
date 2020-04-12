@@ -16,7 +16,7 @@ page{
   padding-top: 40rpx;
   padding-left:50rpx;
   padding-right:50rpx;
-  border-radius: 5rpx;
+  border-radius: 5rpx; 
   height: 260rpx;
 }
 #top{

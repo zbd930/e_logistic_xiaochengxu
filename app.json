@@ -1,7 +1,6 @@
 {
   "pages": [
     
-    "pages/xiaobao/xiaobao",
     "pages/logs/logs",
     "pages/items/items",
     "pages/upload/upload",
@@ -14,7 +13,8 @@
     "pages/index/index",
     "pages/detail/detail",
     "pages/shopping/shopping",
-    "pages/warehouse/warehouse"
+    "pages/warehouse/warehouse",
+    "pages/xiaobao/xiaobao"
   ],
   "window": {
     "backgroundTextStyle": "dark",

@@ -1,16 +1,73 @@
 <!--pages/xiaobao/xiaobao.wxml-->
-<view class="top">
-  <image src="../../pics/menu1.png" style="top_image">
-  </image>
-</view>
-<view class="middle layout_horizontal ">
-      <view class="picker layout_horizontal">
-          <text >起运港</text>
+<view class="background_items">
+  <view class="top">
+    <image src="../../pics/menu1.png" style="top_image">
+    </image>
+  </view>
+  <view class="middle layout_horizontal ">
+        <view class="picker layout_vertical">
+            <text >起运港</text>
+            <text >{{qiyungang}}</text>
+            <text class="item">货物重量</text>
+            <text class="item">货物体积</text>
+        </view>
+        <view class="picker" >
+          <image src="../../pics/planeicon@2x.png" class="plane"></image>
+        </view>
+        <view class="picker layout_vertical">
+            <text >目的港</text>
+            <text >{{mudiguo}}</text>
+            <text class="item">{{xiaobao_weight}}</text>
+            <text class="item">{{xiaobao_volumn}}</text>
+        </view>
+  </view> 
+  <block wx:for="{{items}}" wx:key='item' wx:for-index="bindex">
+        <view class="items">
+            <view class=" layout_horizontal " id="top">
+                    <text class="title desc" id="desc">{{item.desc}}
+                    <text class="desc" style="text-align:right">{{item.supplier_company.company_name}}</text>
+                    </text>
+                    <image src="../../pics/lunchuan.png" class="image">
+                    </image>
+            </view> 
+          <view class="div layout_vertical">
+              <view class=" layout_horizontal ">
+                <text class="iconfont icon-jiage" style="font-size:50rpx"></text>
+                <text>{{item.price_xiaobao.amount}}元</text>
+              </view>
+              <view class=" layout_horizontal " style="padding-left:10rpx">
+                <text class="iconfont icon-shijian" style="font-size:30rpx"></text>
+                <text style="padding-left:10rpx"> {{item.timetable}}天</text>
+              </view> 
+          </view>
+            <button bindtap="submit" data-songhuo="{{item.supplier_company.contact_address}}" data-amount="{{item.price_xiaobao.amount}}"
+              data-company="{{item.supplier_company.supplier_id}}" data-companyid="{{item.supplier_company.user_id}}"
+            >详情</button> 
+        </view>
+         <!-- 弹出层 -->
+    <view class="mask" catchtouchmove="preventTouchMove" wx:if="{{showModal}}"></view>
+      <view class="modalDlg" wx:if="{{showModal}}">
+      <image src="../../pics/error.png" class='cancel' bindtap="go"></image>
+            <text style="0 auto；margin-top:20rpx">订单确认</text>
+         <view class="picker xinxi border" > 
+            <picker  mode="date" value="{{dateValue}}" start="2019-01-01" end="2999-12-12" bindchange="datePickerBindchange" id="date">
+                <text style="font-size:20rpx"> 提货日期: {{dateValue}}</text>
+            </picker>
+           </view>
+           <view bindtap='dizhi' class='xinxi layout_vertical border'>
+              <text style="font-size:20rpx">地址: </text>
+              <div class="layout_horizontal " style="margin-left:15rpx;font-size:20rpx">{{seleted_address.address}}</div>
+          </view>  
+          <view  class='xinxi layout_vertical border'>
+            <text class="layout_horizontal" style="font-size:20rpx">提货： </text>
+            <switch checked="{{switch1Checked}}" bindchange="switch1Change" class="wx-switch-input"/>
+          </view> 
+            <text style="20rpx auto">详情说明</text>
+            <text>{{item.detail}}</text>
+          <button class="button" bindtap="order">下单</button>
       </view>
-       <view class="picker" >
-         <image src="../../pics/planeicon@2x.png" class="plane"></image>
-      </view>
-      <view class="picker layout_horizontal">
-          <text >目的港</text>
-      </view>
-</view>
+    </block>
+
+   </view>
+
+
